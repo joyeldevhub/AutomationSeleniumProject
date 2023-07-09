@@ -1,0 +1,20 @@
+package org.project;
+
+import java.awt.AWTException;
+import java.io.IOException;
+
+public class AutoFive extends AutoFour {
+	
+	private void eight() throws InterruptedException, AWTException, IOException{
+		super.six();
+		super.seven();
+	}
+	
+	//main method
+	public static void main(String args[]) throws InterruptedException, AWTException, IOException {
+		//object creation
+		AutoFive info = new AutoFive();
+		info.eight();
+	}
+
+}

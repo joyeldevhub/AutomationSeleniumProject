@@ -1,0 +1,81 @@
+package org.project;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
+public class AutoFour extends AutoThree {
+	
+	public void six() throws InterruptedException, AWTException, IOException {
+		super.four();
+		super.five();		
+	}
+	
+	public void seven() throws InterruptedException, AWTException {
+		
+		JavascriptExecutor java = (JavascriptExecutor)driver;
+		Robot robot = new Robot();
+		
+		WebElement element = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[1]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element);
+		Thread.sleep(13000);
+		
+		WebElement element2 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[2]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element2);
+		Thread.sleep(12000);
+		
+		WebElement element3 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[3]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element3);
+		Thread.sleep(11000);
+		
+		WebElement element4 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[4]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element4);
+		Thread.sleep(10000);
+		
+		WebElement element5 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[5]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element5);
+		Thread.sleep(9000);
+		
+		WebElement element6 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[6]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element6);
+		Thread.sleep(8000);
+		
+		WebElement element7 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[7]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element7);
+		Thread.sleep(7000);
+		
+		WebElement element8 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[8]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element8);
+		Thread.sleep(6000);
+		
+		WebElement findElement = driver.findElement(By.xpath("//h2[@class='text-h3 text-center main-blue--text']"));
+		java.executeScript("arguments[0].scrollIntoView(true);", findElement);
+		Thread.sleep(5000);
+		
+		WebElement element9 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[9]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element9);
+		Thread.sleep(4000);
+		
+		WebElement element10 = driver.findElement(By.xpath("(//h1[@class='d-inline dark-blue--text text-h4'])[10]"));
+		java.executeScript("arguments[0].scrollIntoView(true);", element9);
+		Thread.sleep(3000);
+		
+		robot.keyPress(KeyEvent.VK_HOME);
+		robot.keyRelease(KeyEvent.VK_HOME);
+		Thread.sleep(2000);
+				
+	}
+	//main method
+	public static void main(String args[]) throws InterruptedException, AWTException, IOException {
+		//object creation
+		AutoFour info = new AutoFour();
+		info.six();
+		info.seven();
+	}
+
+}

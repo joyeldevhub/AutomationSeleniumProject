@@ -1,0 +1,56 @@
+package org.project;
+
+import java.awt.AWTException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class AutoThree extends AutoTwo {
+	
+	public void four() throws InterruptedException, AWTException, IOException {
+		super.two();
+		super.three();
+	}	
+	
+	public void five() throws InterruptedException {
+		
+		Actions actions = new Actions(driver);
+		
+		
+		WebElement element = driver.findElement(By.xpath("(//img[@alt='MedAll'])[1]"));
+		actions.click(element).perform();
+		Thread.sleep(1000);
+		
+		WebElement element2 = driver.findElement(By.xpath("//i[text()='expand_more']"));
+		actions.click(element2).perform();
+		Thread.sleep(2000);
+		
+		WebElement element3 = driver.findElement(By.xpath("(//a[@class='d-block dark-grey--text text-link py-1'])[4]"));
+		actions.click(element3).perform();
+		Thread.sleep(2000);
+		
+		driver.navigate().back();
+		Thread.sleep(3000);
+		
+		List<String> handles = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window(handles.get(0));
+        Thread.sleep(5000);	
+        
+        driver.navigate().back();
+        Thread.sleep(3000);
+		
+	}
+	//main method
+	public static void main(String args[]) throws InterruptedException, AWTException, IOException {
+		//object creation
+		AutoThree info = new AutoThree();
+		info.four();
+		info.five();
+	}
+
+}

@@ -1,0 +1,68 @@
+package org.project;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.project.AutoTwo;
+
+public class AutoTwo extends AutoOne {
+	
+	public void two() throws InterruptedException, AWTException, IOException {
+		super.one();
+		Thread.sleep(1000);
+	}
+	
+	public void three() throws InterruptedException, AWTException {
+		
+		Actions actions = new Actions(driver);
+		JavascriptExecutor java = (JavascriptExecutor)driver;
+		Robot robot = new Robot();
+		
+		WebElement element = driver.findElement(By.xpath("(//span[@class='v-btn__content'])[1]"));
+		actions.moveToElement(element).perform();
+		actions.click().perform();
+		Thread.sleep(5000);
+		
+		WebElement element2 = driver.findElement(By.xpath("//input[@placeholder='Search']"));
+		element2.sendKeys("Hand Fracture");
+		Thread.sleep(4000);
+		
+		WebElement element3 = driver.findElement(By.xpath("//i[text()='search']"));
+		actions.click(element3).perform();
+		Thread.sleep(3000);
+		
+		WebElement element4 = driver.findElement(By.xpath("(//div[@class='text-truncate'])[4]"));
+		java.executeScript("window.scrollBy(0, 450)");
+		actions.contextClick(element4).perform();
+		robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+		robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+				
+		List<String> handles = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window(handles.get(1));
+        Thread.sleep(2000);	
+		
+		
+	}		
+	
+	
+	
+	//main method
+	public static void main(String args[]) throws InterruptedException, AWTException, IOException {
+		//object creation
+		AutoTwo info = new AutoTwo();
+		info.two();
+		info.three();
+	}
+
+}
